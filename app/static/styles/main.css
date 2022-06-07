@@ -161,3 +161,20 @@ body {
 .experience p {
     display: inline;
 }
+
+.hobbies-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.hobbies-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.hobby img {
+    border-radius: 50px;
+    width: 560px;
+}

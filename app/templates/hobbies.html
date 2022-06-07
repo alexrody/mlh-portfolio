@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="profile small-profile">
+    <div class="horizontal-profile">
+        <div id="profile-picture" class="profile-picture">
+            <img src="./static/img/alex.jpg">
+        </div>
+        <h1>{{ title }}</h1>
+    </div>
+    <h2>Hobbies</h2>
+    <div class="hobbies-container">
+        <div class="hobbies-column">
+            <div class="hobby">
+                <img src="./static/img/hobbies/piano.jpeg">
+                <small>Playing the piano</small>
+            </div>
+            <div class="hobby">
+                <img src="./static/img/hobbies/minecraft.jpeg">
+                <small>Playing videogames, especially Minecraft</small>
+            </div>
+        </div>
+        <div class="hobbies-column">
+            <div class="hobby">
+                <img src="./static/img/hobbies/minecraft.jpeg">
+                <small>Playing videogames, especially Minecraft</small>
+            </div>
+            <div class="hobby">
+                <img src="./static/img/hobbies/piano.jpeg">
+                <small>Playing the piano</small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
