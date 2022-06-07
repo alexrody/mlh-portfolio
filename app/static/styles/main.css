@@ -134,8 +134,18 @@ body {
     display: inline-block;
 }
 
+.experiences {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding: 20px;
+}
+
 .experience {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     text-align: left;
@@ -143,7 +153,8 @@ body {
 }
 
 .experience img {
-    width: 100px;
+    min-width: 100px;
+    max-width: 120px;
 }
 
 .experience h3 {

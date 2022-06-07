@@ -1,10 +1,13 @@
+from cmath import exp
 import os
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
+import json
 
 load_dotenv()
 app = Flask(__name__)
 
+exp = json.load(open("./app/static/json/experience.json"))
 
 @app.route('/')
 def index():
@@ -12,7 +15,7 @@ def index():
 
 @app.route('/experience')
 def experience():
-    return render_template('experience.html', title="Álex Rody", url=os.getenv("URL"))
+    return render_template('experience.jinja2', title="Álex Rody", experience=exp, url=os.getenv("URL"))
 
 @app.route('/education')
 def education():

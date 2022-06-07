@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="profile small-profile">
+    <div class="horizontal-profile">
+        <div id="profile-picture" class="profile-picture">
+            <img src="./static/img/alex.jpg">
+        </div>
+        <h1>{{ title }}</h1>
+    </div>
+    <h2>Experience</h2>
+        <div class="experiences">
+            {% for current in experience %}
+                <div class="experience">
+                    <div><img src="{{current["logo-url"]}}"></div>
+                    <div>
+                        <h3>{{current["position"]}}</h3><br/>
+                        <h4>{{current["company"]}}</h4><br/>
+                        <small>{{current["dates"]}}</small><br/>
+                        <p>{{current["description"]}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+</div>
+{% endblock content %}

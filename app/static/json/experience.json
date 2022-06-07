@@ -1,0 +1,23 @@
+[
+    {
+        "logo-url": "./static/img/experience/abuelo.png",
+        "position": "Full-Stack Web Developer",
+        "company": "Club del Abuelo elderly care home",
+        "dates": "03/22 - 05/22",
+        "description": "Mini-Mental State Exam application tool built on React, Node, Express & MySQL stack. Prototype proposal developed in SWE course for the Club del Abuelo elderly care home in Zapopan, México."
+    },
+    {
+        "logo-url": "./static/img/experience/tec.ico",
+        "position": "Research Assistant",
+        "company": "Instituto Tecnológico y de Estudios Superiores de Monterrey, Campus Guadalajara",
+        "dates": "09/21 - 03/22",
+        "description": "Collaborator in the Inter-American Development Bank's fAIr LAC initiative research project on school dropout. Automated data cleaning and text mining in Python, researched and implemented NLP algorithms, documented insights for analysis, publishing and use by the Jalisco state government."
+    },
+    {
+        "logo-url": "./static/img/experience/superprof.png",
+        "position": "Math and Physics Tutor",
+        "company": "Superprof (freelance)",
+        "dates": "04/21 - 03-22",
+        "description": "Middle, high school and college level lessons on calculus, algebra, physics and logic."
+    }
+]
