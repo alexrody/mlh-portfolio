@@ -20,4 +20,4 @@ def education():
 
 @app.route('/hobbies')
 def hobbies():
-    return "Hobbies"
+    return render_template('hobbies.html', title="Álex Rody", url=os.getenv("URL"))
