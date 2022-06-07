@@ -1,0 +1,14 @@
+[
+    {
+        "logo-url": "./static/img/experience/tec.ico",
+        "position": "B.S. in Computer Science and Technology",
+        "company": "Instituto Tecnológico y de Estudios Superiores de Monterrey, Campus Guadalajara",
+        "dates": "08/20 - 06/24"
+    },
+    {
+        "logo-url": "./static/img/experience/tecmilenio.png",
+        "position": "Bilingual High School Diploma",
+        "company": "Universidad Tecmilenio, Campus Zapopan",
+        "dates": "08/16 - 05/19"
+    }
+]
