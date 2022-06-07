@@ -14,10 +14,11 @@ body {
 .nav-bar {
     width: 100%;
     display: inline-block;
-    background-color: #1C539F;
+    background-color: #0e294F;
     font-family: "Roboto", serif;
     font-weight: 700 !important;
     padding-top: 10px;
+    padding-bottom: 15px;
 }
 
 .nav-content .logo-touch-target {
@@ -44,9 +45,15 @@ body {
 .nav-content nav {
     display: block;
     width: 100%;
-    text-align: right;
+    text-align: center;
     padding-top: 0px;
     padding-right: 0px;
+}
+
+.nav-content a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
 }
 
 .profile {
