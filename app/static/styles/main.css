@@ -63,6 +63,16 @@ body {
     margin-bottom: 50px;
 }
 
+.small-profile {
+    height: 140px;
+}
+
+.horizontal-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .profile h1 {
         font-size: 50px;
         font-weight: 700;
@@ -86,6 +96,11 @@ body {
     margin-bottom: 30px;
     height: 200px;
 }
+
+.small-profile .profile-picture {
+    height: 100px;
+}
+
 
 .profile-picture {
     border-radius: 50%;
@@ -117,4 +132,32 @@ body {
 
 .social-media img {
     display: inline-block;
+}
+
+.experience {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding: 20px;
+}
+
+.experience img {
+    width: 100px;
+}
+
+.experience h3 {
+    display: inline;
+}
+
+.experience h4 {
+    display: inline;
+}
+
+.experience small {
+    display: inline;
+}
+
+.experience p {
+    display: inline;
 }
