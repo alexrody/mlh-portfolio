@@ -12,7 +12,7 @@ def index():
 
 @app.route('/experience')
 def experience():
-    return "Experience"
+    return render_template('experience.html', title="Álex Rody", url=os.getenv("URL"))
 
 @app.route('/education')
 def education():
