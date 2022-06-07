@@ -1,0 +1,18 @@
+[
+    {
+        "image-url": "./static/img/hobbies/piano.jpeg",
+        "text": "Playing the piano"
+    },
+    {
+        "image-url": "./static/img/hobbies/minecraft.jpeg",
+        "text": "Playing videogames, especially Minecraft"
+    },
+    {
+        "image-url": "./static/img/hobbies/posters.jpeg",
+        "text": "Collecting things to put up on my wall"
+    },
+    {
+        "image-url": "./static/img/hobbies/books.jpeg",
+        "text": "Reading on my bus commutes"
+    }
+]
