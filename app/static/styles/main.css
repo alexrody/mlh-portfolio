@@ -77,6 +77,10 @@ body {
     height: 200px;
 }
 
+.profile-picture {
+    border-radius: 50%;
+}
+
 .banner {
     padding: 20px 0px 50px 0px;
     height: 150px;
