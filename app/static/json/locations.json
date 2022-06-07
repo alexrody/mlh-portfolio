@@ -1,0 +1,38 @@
+[
+    {
+        "lat": 20.6739383,
+        "lon": -103.4054544,
+        "zoom": 3,
+        "text": "Guadalajara, México"
+    },
+    {
+        "lat": 33.7838287,
+        "lon": -119.4200648,
+        "zoom": 3,
+        "text": "Los Angeles, CA"
+    },
+    {
+        "lat": 46.197523,
+        "lon": 1.8498663,
+        "zoom": 4,
+        "text": "Paris, France"
+    },
+    {
+        "lat": 51.5287352,
+        "lon": -0.3817873,
+        "zoom": 4,
+        "text": "London, UK"
+    },
+    {
+        "lat": 41.9102415,
+        "lon": 12.3959111,
+        "zoom": 5,
+        "text": "Rome, Italy"
+    },
+    {
+        "lat": 43.7800607,
+        "lon": 11.1709273,
+        "zoom": 5,
+        "text": "Florence, Italy"
+    }
+]
