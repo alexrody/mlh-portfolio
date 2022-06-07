@@ -8,7 +8,7 @@ load_dotenv()
 app = Flask(__name__)
 
 exp = json.load(open("./app/static/json/experience.json"))
-exp = json.load(open("./app/static/json/education.json"))
+edu = json.load(open("./app/static/json/education.json"))
 hob = json.load(open("./app/static/json/hobbies.json"))
 
 @app.route('/')
@@ -21,7 +21,7 @@ def experience():
 
 @app.route('/education')
 def education():
-    return render_template('experience.jinja2', title="Álex Rody", section="Education", experience=exp, url=os.getenv("URL"))
+    return render_template('experience.jinja2', title="Álex Rody", section="Education", experience=edu, url=os.getenv("URL"))
 
 @app.route('/hobbies')
 def hobbies():
