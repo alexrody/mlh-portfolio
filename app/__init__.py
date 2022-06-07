@@ -10,6 +10,8 @@ app = Flask(__name__)
 exp = json.load(open("./app/static/json/experience.json"))
 edu = json.load(open("./app/static/json/education.json"))
 hob = json.load(open("./app/static/json/hobbies.json"))
+loc = json.load(open("./app/static/json/locations.json"))
+print(loc[2])
 
 @app.route('/')
 def index():
@@ -26,3 +28,7 @@ def education():
 @app.route('/hobbies')
 def hobbies():
     return render_template('hobbies.jinja2', title="Álex Rody", hobbies=hob, length=len(hob), url=os.getenv("URL"))
+
+@app.route('/map')
+def map():
+    return render_template('map.jinja2', title="Álex Rody", locations=loc, url=os.getenv("URL"))
