@@ -8,6 +8,7 @@ load_dotenv()
 app = Flask(__name__)
 
 exp = json.load(open("./app/static/json/experience.json"))
+hob = json.load(open("./app/static/json/hobbies.json"))
 
 @app.route('/')
 def index():
@@ -23,4 +24,4 @@ def education():
 
 @app.route('/hobbies')
 def hobbies():
-    return render_template('hobbies.html', title="Álex Rody", url=os.getenv("URL"))
+    return render_template('hobbies.jinja2', title="Álex Rody", hobbies=hob, length=len(hob), url=os.getenv("URL"))
