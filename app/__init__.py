@@ -11,7 +11,6 @@ exp = json.load(open("./app/static/json/experience.json"))
 edu = json.load(open("./app/static/json/education.json"))
 hob = json.load(open("./app/static/json/hobbies.json"))
 loc = json.load(open("./app/static/json/locations.json"))
-print(loc[2])
 
 @app.route('/')
 def index():
