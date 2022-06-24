@@ -1,11 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="maps">
-    {% for location in locations %}
-        <div>
-            <div><iframe src="https://maps.google.com/maps?q={{location["lat"]}},{{location["lon"]}}&z={{location["zoom"]}}&output=embed"></iframe></div>
-            <small>{{location["text"]}}</small>
-        </div>
-    {% endfor %}
+    <iframe src="{{locations["url"]}}}}" width="640" height="480"></iframe>
 </div>
 {% endblock content %}
