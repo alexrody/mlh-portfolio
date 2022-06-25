@@ -49,6 +49,12 @@ def get_time_line_post():
         ]
     }
 
+@app.route('/api/timeline_post', methods=['DELETE'])
+def delete_time_line_post():
+    id = request.form['id']
+    mydb.execute(TimelinePost.delete().where(TimelinePost.id == id))
+    return {'id': id}
+
 exp = json.load(open("./app/static/json/experience.json"))
 edu = json.load(open("./app/static/json/education.json"))
 hob = json.load(open("./app/static/json/hobbies.json"))
