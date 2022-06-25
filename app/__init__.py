@@ -1,4 +1,5 @@
 from cmath import exp
+import datetime
 import os
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
@@ -14,6 +15,17 @@ mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
     host=os.getenv("MYSQL_HOST"),
     port=3306
 )
+
+class TimelinePost(Model):
+    name = CharField()
+    email = CharField()
+    content = CharField()
+    created_at = DateTimeField(default=datetime.datetime.now)
+    class Meta:
+        database = mydb
+
+mydb.connect()
+mydb.create_tables([TimelinePost])
 
 exp = json.load(open("./app/static/json/experience.json"))
 edu = json.load(open("./app/static/json/education.json"))
