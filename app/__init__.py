@@ -40,6 +40,15 @@ def post_time_line_post():
     )
     return model_to_dict(timeline_post)
 
+@app.route('/api/timeline_post', methods=['GET'])
+def get_time_line_post():
+    return {
+        'timeline_posts': [
+            model_to_dict(p) for p in
+            TimelinePost.select().order_by(TimelinePost.created_at.desc())
+        ]
+    }
+
 exp = json.load(open("./app/static/json/experience.json"))
 edu = json.load(open("./app/static/json/education.json"))
 hob = json.load(open("./app/static/json/hobbies.json"))
