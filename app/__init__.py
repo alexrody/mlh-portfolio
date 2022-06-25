@@ -5,6 +5,7 @@ from flask import Flask, render_template, request
 from dotenv import load_dotenv
 import json
 from peewee import *
+from playhouse.shortcuts import model_to_dict
 
 load_dotenv()
 app = Flask(__name__)
@@ -26,6 +27,18 @@ class TimelinePost(Model):
 
 mydb.connect()
 mydb.create_tables([TimelinePost])
+
+@app.route('/api/timeline_post', methods=['POST'])
+def post_time_line_post():
+    name = request.form['name']
+    email = request.form['email']
+    content = request.form['content']
+    timeline_post = TimelinePost.create(
+        name=name,
+        email=email,
+        content=content
+    )
+    return model_to_dict(timeline_post)
 
 exp = json.load(open("./app/static/json/experience.json"))
 edu = json.load(open("./app/static/json/education.json"))
