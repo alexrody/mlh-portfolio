@@ -79,3 +79,7 @@ def hobbies():
 @app.route('/map')
 def map():
     return render_template('map.jinja2', title="Álex Rody", locations=loc, url=os.getenv("URL"))
+
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html', title="Álex Rody", section="Timeline", url=os.getenv("URL"))

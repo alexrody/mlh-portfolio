@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="profile small-profile">
+    <div class="horizontal-profile">
+        <div id="profile-picture" class="profile-picture">
+            <img src="./static/img/alex.jpg">
+        </div>
+        <h1>{{ title }}</h1>
+    </div>
+    <h2>{{ section }}</h2>
+        <form id="submit-timeline-post">
+            <input type="text" id="name" name="name" placeholder="Name"><br/>
+            <input type="email" id="email" name="email" placeholder="Email"><br/>
+            <textarea id="content" name="content" rows="5" cols="18"  placeholder="Content of the post"></textarea><br/>
+            <input type="submit" value="Submit">
+        </form>
+        <script>
+            const form = document.getElementById('submit-timeline-post')
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                const prepare = new FormData(form);
+                const payload = new URLSearchParams(prepare);
+                console.log([...payload]);
+                fetch(`${window.location.protocol}//${window.location.host}/api/timeline_post`, {
+                    method: 'POST',
+                    body: payload
+                })
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                    .catch(err => console.log(err));
+                location.reload();
+            });
+        </script>
+        <div class="timeline">
+            {% for current in timeline %}
+                <div class="timeline-post">
+                    {# Body #}
+                </div>
+            {% endfor %}
+        </div>
+</div>
+{% endblock content %}
