@@ -191,6 +191,33 @@ body {
 }
 
 .maps {
+    margin: auto;
+    width: 640px;
+}
+
+#submit-timeline-post {
+    background-color: #d1e4ff;
+    margin: auto;
+    margin-bottom: 50px;
+    padding: 10px;
+    width: 200px;
+    border-radius: 20px;
+}
+
+#submit-timeline-post > * {
+    border-radius: 0.5em;
+    border: 0;
+    margin: 2px;
+}
+
+#timeline {
     display: flex;
     flex-wrap: wrap;
+}
+
+.timeline-post {
+    background-color: #d1e4ff;
+    border-radius: 30px;
+    width: 20%;
+    margin: 10px;
 }

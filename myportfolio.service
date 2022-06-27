@@ -1,0 +1,13 @@
+[Unit]
+Description=Serve Portfolio Site
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/root/mlh-portfolio
+ExecStart=/root/mlh-portfolio/python3-virtualenv/bin/python /root/mlh-portfolio/python3-virtualenv/bin/flask run --host=0.0.0.0
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
