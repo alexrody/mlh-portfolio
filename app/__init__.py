@@ -52,7 +52,7 @@ def get_time_line_post():
 @app.route('/api/timeline_post', methods=['DELETE'])
 def delete_time_line_post():
     id = request.form['id']
-    mydb.execute(TimelinePost.delete().where(TimelinePost.id == id))
+    TimelinePost.delete_by_id(id)
     return {'id': id}
 
 exp = json.load(open("./app/static/json/experience.json"))
