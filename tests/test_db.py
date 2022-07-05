@@ -3,6 +3,8 @@
 
 import unittest
 from peewee import *
+from playhouse.shortcuts import model_to_dict
+
 from app import TimelinePost
 
 MODELS = [TimelinePost]
@@ -25,12 +27,16 @@ class TestTimelinePost(unittest.TestCase):
             email="john@example.com",
             content="Hello world, I\'m John!"
         )
-
         assert first_post.id == 1
 
-        second_post = TimelinePost.create(name="Jane Doe",
+        second_post = TimelinePost.create(
+            name="Jane Doe",
             email="Jane@example.com",
-            content="Hello world, I\'m Jane!")
+            content="Hello world, I\'m Jane!"
+        )
         assert second_post.id == 2
-        
-        #TODO: check the post list for these two
+
+        posts = [model_to_dict(post) for post in \
+                TimelinePost.select().order_by(TimelinePost.id.asc())]
+        assert posts[0]['id'] == 1
+        assert posts[1]['id'] == 2
