@@ -14,6 +14,11 @@
             <textarea id="content" name="content" rows="5" cols="18"  placeholder="Content of the post"></textarea><br/>
             <input type="submit" value="Submit">
         </form>
+        {% if failure %}
+            <div id="post-timeline-error">
+                429 Error
+            </div>
+        {% endif %}
         <div id="timeline">
         </div>
         <script>

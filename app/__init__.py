@@ -102,4 +102,8 @@ def map():
 
 @app.route('/timeline')
 def timeline():
-    return render_template('timeline.html', title="Álex Rody", section="Timeline", url=os.getenv("URL"))
+    failure = request.values.get('failure')
+    if failure == 'true':
+        return render_template('timeline.html', title="Álex Rody", section="Timeline", failure=True, url=os.getenv("URL"))
+    else:
+        return render_template('timeline.html', title="Álex Rody", section="Timeline", failure=False, url=os.getenv("URL"))
