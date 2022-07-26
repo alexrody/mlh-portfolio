@@ -8,7 +8,14 @@ on:
 jobs:
   test:
     name: Run Tests
-    uses: ./.github/workflows/test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call test workflow
+        uses: ./.github/workflows/test
+
+      - name: Send failure message to Discord
+        if: ${{ failure() }}
+        run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Deployment Failed (test job)"
   deploy:
     name: Deploy to VPS
     needs: test
@@ -38,4 +45,9 @@ jobs:
         run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && docker compose ps'
 
       - name: Send success message to Discord
+        if: ${{ success() }}
         run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"
+
+      - name: Send failure message to Discord
+        if: ${{ failure() }}
+        run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Deployment Failed (deploy job)"
