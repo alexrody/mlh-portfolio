@@ -6,8 +6,12 @@ on:
   workflow_dispatch:
 
 jobs:
+  test:
+    name: Run Tests
+    uses: ./.github/workflows/test
   deploy:
     name: Deploy to VPS
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Configure SSH
