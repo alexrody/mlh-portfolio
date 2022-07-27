@@ -8,17 +8,9 @@ on:
 jobs:
   test:
     name: Run Tests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Call test workflow
-        uses: ./.github/workflows/test.yml
-
-      - name: Send failure message to Discord
-        if: ${{ failure() }}
-        run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Deployment Failed (test job)"
+    uses: ./.github/workflows/test.yml
+    with:
+      environment: production
   deploy:
     name: Deploy to VPS
     needs: test
