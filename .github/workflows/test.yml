@@ -16,7 +16,7 @@ jobs:
     env:
       TESTING: true
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Setup Python
@@ -24,15 +24,15 @@ jobs:
         with:
           python-version: '3.6.8'
 
-      - name: Setup Python Virtual Environment
+      - name: Setup Python virtual environment
         run: python -m venv python3-virtualenv
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: python3-virtualenv/bin/pip install -r requirements.txt
 
-      - name: Run Tests
+      - name: Run tests
         run: ./run_test.sh
 
-      - name: Send failure message to Discord
+      - name: Send Discord message on failure
         if: ${{ failure() && inputs.environment == 'production' }}
         run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=⚠️ Deployment Tests Failed"
