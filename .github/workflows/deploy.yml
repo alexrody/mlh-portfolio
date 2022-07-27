@@ -46,4 +46,4 @@ jobs:
 
       - name: Send failure message to Discord
         if: ${{ failure() }}
-        run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Deployment Failed (deploy job)"
+        run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Deployment to VPS Failed"
