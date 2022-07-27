@@ -4,6 +4,10 @@ on:
     branches:
       - main
   workflow_call:
+    inputs:
+      environment:
+        required: false
+        type: string
 
 jobs:
   test:
@@ -28,3 +32,7 @@ jobs:
 
       - name: Run Tests
         run: ./run_test.sh
+
+      - name: Send failure message to Discord
+        if: ${{ failure() && inputs.environment == 'production' }}
+        run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Deployment Failed (test job)"
