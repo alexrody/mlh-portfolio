@@ -14,6 +14,12 @@
             <textarea id="content" name="content" rows="5" cols="18"  placeholder="Content of the post"></textarea><br/>
             <input type="submit" value="Submit">
         </form>
+        {% if failure %}
+            <div id="post-timeline-error">
+                <b>Error 429</b><br/>
+                <small>You've reached the limit of posts you can make per minute, wait a while before you try again</small>
+            </div>
+        {% endif %}
         <div id="timeline">
         </div>
         <script>
@@ -28,10 +34,17 @@
                     method: 'POST',
                     body: payload
                 })
-                    .then(res => res.json())
-                    .then(data => console.log(data))
+                    .then(res => {
+                        if (res.status == 429) {
+                            location.replace(`${window.location.protocol}//${window.location.host}${window.location.pathname}?failure=true`);
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        console.log(data);
+                            location.replace(`${window.location.protocol}//${window.location.host}${window.location.pathname}`);
+                    })
                     .catch(err => console.log(err));
-                location.reload();
             });
             fetch(endpoint, {method: 'GET'})
                 .then(res => res.json())

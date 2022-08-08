@@ -40,9 +40,9 @@ mydb.create_tables([TimelinePost])
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
-    name = request.form['name']
-    content = request.form['content']
-    email = request.form['email']
+    name = request.values.get('name')
+    content = request.values.get('content')
+    email = request.values.get('email')
 
     # Check these constraints before updating the DB
     if name == "":
@@ -102,4 +102,8 @@ def map():
 
 @app.route('/timeline')
 def timeline():
-    return render_template('timeline.html', title="Álex Rody", section="Timeline", url=os.getenv("URL"))
+    failure = request.values.get('failure')
+    if failure == 'true':
+        return render_template('timeline.html', title="Álex Rody", section="Timeline", failure=True, url=os.getenv("URL"))
+    else:
+        return render_template('timeline.html', title="Álex Rody", section="Timeline", failure=False, url=os.getenv("URL"))

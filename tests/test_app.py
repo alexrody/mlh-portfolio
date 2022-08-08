@@ -1,26 +1,14 @@
 import unittest
 import os
-from peewee import *
-
-from app import app, TimelinePost
-
+from flask import json
+from playhouse.shortcuts import model_to_dict
 os.environ['TESTING'] = 'true'
 
-MODELS = [TimelinePost]
-
-test_db = SqliteDatabase(':memory:')
+from app import app
 
 class AppTestCase(unittest.TestCase):
     def setUp(self):
-        test_db.bind(MODELS, bind_refs=False, bind_backrefs=False)
-        test_db.connect()
-        test_db.create_tables(MODELS)
-
         self.client = app.test_client()
-    
-    def tearDown(self):
-        test_db.drop_tables([TimelinePost])
-        test_db.close()
         
     def test_home(self):
         response = self.client.get("/")
@@ -32,16 +20,13 @@ class AppTestCase(unittest.TestCase):
         assert "<h2>About me</h2>" in html
 
     def test_timeline(self):
-        # There are 0 posts initially:
-        response_1 = self.client.get("/api/timeline_post")
-        assert response_1.status_code == 200
-        assert response_1.is_json
-        
-        json_1 = response_1.get_json()
-        assert "timeline_posts" in json_1
-        assert len(json_1["timeline_posts"]) == 0
-
-        # Creating 1 post:
+        response_before = self.client.get('/api/timeline_post')
+        assert response_before.status_code == 200
+        assert response_before.is_json
+        json_before = response_before.get_json()
+        assert "timeline_posts" in json_before
+        assert len(json_before['timeline_posts']) == 0
+        # Create 2 posts
         post_1 = self.client.post(
             '/api/timeline_post',
             data={

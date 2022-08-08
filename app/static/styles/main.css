@@ -198,7 +198,7 @@ body {
 #submit-timeline-post {
     background-color: #d1e4ff;
     margin: auto;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     padding: 10px;
     width: 200px;
     border-radius: 20px;
@@ -213,6 +213,15 @@ body {
 #timeline {
     display: flex;
     flex-wrap: wrap;
+}
+
+#post-timeline-error {
+    background-color: #ffd1d1;
+    border-radius: 30px;
+    width: 10em;
+    margin: auto;
+    margin-bottom: 30px;
+    padding:10px;
 }
 
 .timeline-post {
